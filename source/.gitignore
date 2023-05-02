@@ -1,0 +1,11 @@
+**/*.terraform
+Batch_processing/airflow/*
+Batch_processing/dbt/logs
+Batch_processing/dbt/target/
+Batch_processing/dbt/dbt_modules/
+Batch_processing/dbt/dbt_packages/
+Batch_processing/dbt/.user.yml
+
+!Batch_processing/airflow/dags
+!Batch_processing/airflow/docker-compose.yaml
+!Batch_processing/airflow/Dockerfile
