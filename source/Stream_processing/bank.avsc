@@ -1,0 +1,91 @@
+{
+  "namespace": "com.practice.bank",
+  "type": "record",
+  "name": "bankvalue",
+  "fields": [
+    {
+      "name": "age",
+      "type" : "int"
+    },
+    {
+      "name": "job",
+      "type": "string"
+    },
+    {
+      "name": "education",
+      "type": "string"
+    },
+    {
+      "name": "marital",
+      "type": "string"
+    },
+    {
+      "name": "default",
+      "type": "string"
+    },
+    {
+      "name": "housing",
+      "type": "string"
+    },
+    {
+      "name": "loan",
+      "type": "string" 
+    },
+    {
+      "name": "contact",
+      "type": "string" 
+    },
+    {
+      "name": "month",
+      "type": "string" 
+    },
+    {
+      "name": "day_of_week",
+      "type": "string" 
+    },
+    {
+      "name": "duration",
+      "type": "double" 
+    },
+    {
+      "name": "campaign",
+      "type": "double" 
+    },
+    {
+      "name": "pdays",
+      "type": "double" 
+    },
+    {
+      "name": "previous",
+      "type": "double" 
+    },
+    {
+      "name": "poutcome",
+      "type": "string" 
+    },
+    {
+      "name": "emp_var_rate",
+      "type": "double" 
+    },
+    {
+      "name": "cons_price_idx",
+      "type": "double" 
+    },
+    {
+      "name": "cons_conf_idx",
+      "type": "double" 
+    },
+    {
+      "name": "euribor3m",
+      "type": "double" 
+    },
+    {
+      "name": "nr_employed",
+      "type": "double" 
+    },
+    {
+      "name": "y",
+      "type": "string" 
+    }
+  ]
+}

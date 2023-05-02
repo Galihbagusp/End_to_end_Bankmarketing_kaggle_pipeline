@@ -1,0 +1,11 @@
+**/*.terraform
+airflow/*
+dbt/logs
+dbt/target/
+dbt/dbt_modules/
+dbt/dbt_packages/
+dbt/.user.yml
+
+!airflow/dags
+!airflow/docker-compose.yaml
+!airflow/Dockerfile

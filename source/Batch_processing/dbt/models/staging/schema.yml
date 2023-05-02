@@ -1,0 +1,11 @@
+version: 2
+
+sources:
+    - name: staging
+      tables:
+        - name: raw_data
+
+models:
+  - name: stg_bank_marketing
+    description: staging layer for bank campaign data warehouses
+    

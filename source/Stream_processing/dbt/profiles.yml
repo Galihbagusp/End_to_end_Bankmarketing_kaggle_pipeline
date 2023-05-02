@@ -1,0 +1,14 @@
+bank_marketing:
+  target: dev
+  outputs:
+    dev:
+      type: bigquery
+      method: service-account
+      keyfile: "{{ env_var('GOOGLE_APPLICATION_CREDENTIALS') }}"
+      project: "{{ env_var('GCP_PROJECT_ID') }}"
+      schema: "{{ env_var('BIGQUERY_DATASET') }}"
+      location: us-west1
+      threads: 4
+      timeout_seconds: 300
+      priority: interactive
+      fixed_retries: 1
