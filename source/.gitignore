@@ -1,5 +1,4 @@
-terraform/*.terraform
-**/__pycache__
+terraform/*
 Batch_processing/airflow/*
 Batch_processing/dbt/logs
 Batch_processing/dbt/target/
