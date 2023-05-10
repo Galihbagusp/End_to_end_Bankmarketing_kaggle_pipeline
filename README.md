@@ -14,6 +14,7 @@ The data comes from Kaggle dataset (https://www.kaggle.com/datasets/sahistapatel
 - Infrastructure as Code - [**Terraform**](https://www.terraform.io)
 - Containerization - [**Docker**](https://www.docker.com), [**Docker Compose**](https://docs.docker.com/compose/)
 - Batch Processing - [**Apache Spark**](https://spark.apache.org)
+- Stream Processing - [**Apache Kafka**](https://kafka.apache.org)
 - Transformation - [**dbt**](https://www.getdbt.com)
 - Orchestration - [**Airflow**](https://airflow.apache.org)
 - Data Lake - [**Google Cloud Storage**](https://cloud.google.com/storage)
