@@ -2,7 +2,8 @@ from confluent_kafka.avro import AvroConsumer
 from google.cloud import bigquery
 import os
 
-os.environ["GOOGLE_APPLICATION_CREDENTIALS"] = "<insert your credentials path>"
+credential_path = os.getenv('GOOGLE_APPLICATION_CREDENTIALS')
+os.environ["GOOGLE_APPLICATION_CREDENTIALS"] = credential_path
 
 dataset_name = 'staging'
 table_name = 'full_raw_streaming'

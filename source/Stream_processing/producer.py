@@ -6,14 +6,15 @@ import csv
 from time import sleep
 import gcsfs
 
-credential_path = '/home/galihbaguspr/kafka-python-code/bitcoin_bigquery/service_account/key.json'
+credential_path = os.getenv('GOOGLE_APPLICATION_CREDENTIALS')
+GCP_PROJECT_ID = os.getenv('GCP_PROJECT_ID')
 os.environ["GOOGLE_APPLICATION_CREDENTIALS"] = credential_path
 bucket = 'de_bucket-1'
-fs = gcsfs.GCSFileSystem(project='rising-hallway-379116')
+fs = gcsfs.GCSFileSystem(project= GCP_PROJECT_ID)
 
 def load_avro_schema_from_file():
     value_schema = avro.load(
-        "/home/galihbaguspr/final_data/bank.avsc")
+        "/End_to_end_Bankmarketing_kaggle_pipeline/source/Stream_processing/bank.avsc")
 
     return value_schema
 
@@ -30,7 +31,7 @@ def send_record():
     producer = AvroProducer(
         producer_config, default_value_schema=value_schema)
 
-    file = fs.open(f'{bucket}/data_lake/bank-additional-full.csv', 'r')
+    file = fs.open(f'{bucket}/data_lake-us/bank-additional-full.csv', 'r')
     csvreader = csv.reader(file, delimiter=';')
     header = next(csvreader)
     for row in csvreader:
