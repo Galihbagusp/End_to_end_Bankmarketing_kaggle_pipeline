@@ -3,7 +3,7 @@ version: 2
 sources:
     - name: staging
       tables:
-        - name: raw_data
+        - name: full_raw_streaming
 
 models:
   - name: stg_bank_marketing

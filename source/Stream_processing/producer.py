@@ -1,20 +1,24 @@
 from confluent_kafka import avro
 from confluent_kafka.avro import AvroProducer
 from confluent_kafka.avro.serializer.message_serializer import MessageSerializer as AvroSerializer
+from dotenv import load_dotenv
 import os
 import csv
 from time import sleep
 import gcsfs
 
-credential_path = os.getenv('GOOGLE_APPLICATION_CREDENTIALS')
-GCP_PROJECT_ID = os.getenv('GCP_PROJECT_ID')
+load_dotenv('/path/to/folder/containing/.env')
+
+credential_path = os.environ.get('GOOGLE_APPLICATION_CREDENTIALS')
 os.environ["GOOGLE_APPLICATION_CREDENTIALS"] = credential_path
-bucket = 'de_bucket-1'
-fs = gcsfs.GCSFileSystem(project= GCP_PROJECT_ID)
+PROJECT_ID = os.environ.get('GCP_PROJECT_ID')
+bucket = os.environ.get('GCP_GCS_BUCKET')
+fs = gcsfs.GCSFileSystem(project=PROJECT_ID)
+
 
 def load_avro_schema_from_file():
     value_schema = avro.load(
-        "/End_to_end_Bankmarketing_kaggle_pipeline/source/Stream_processing/bank.avsc")
+        "/avro/bank.avsc")
 
     return value_schema
 
@@ -31,7 +35,7 @@ def send_record():
     producer = AvroProducer(
         producer_config, default_value_schema=value_schema)
 
-    file = fs.open(f'{bucket}/data_lake-us/bank-additional-full.csv', 'r')
+    file = fs.open(f'{bucket}/data_lake/bank-additional-full.csv', 'r')
     csvreader = csv.reader(file, delimiter=';')
     header = next(csvreader)
     for row in csvreader:
@@ -56,7 +60,7 @@ def send_record():
             "cons_conf_idx": float(row[17]),
             "euribor3m": float(row[18]),
             "nr_employed": float(row[19]),
-            "y":str(row[20])
+            "y": str(row[20])
         }
 
         try:

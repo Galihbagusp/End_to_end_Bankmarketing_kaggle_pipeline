@@ -1,8 +1,10 @@
 from confluent_kafka.avro import AvroConsumer
 from google.cloud import bigquery
+from dotenv import load_dotenv
 import os
 
-credential_path = os.getenv('GOOGLE_APPLICATION_CREDENTIALS')
+load_dotenv('/path/to/folder/containing/.env')
+credential_path = os.environ.get('GOOGLE_APPLICATION_CREDENTIALS')
 os.environ["GOOGLE_APPLICATION_CREDENTIALS"] = credential_path
 
 dataset_name = 'staging'

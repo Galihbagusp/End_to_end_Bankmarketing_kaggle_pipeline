@@ -1,0 +1,6 @@
+avro==1.11.1
+confluent-kafka==2.1.1
+dotenv==0.0.5
+fastavro==1.7.4
+gcsfs==2023.5.0
+dbt-bigquery==1.5.1

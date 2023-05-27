@@ -1,7 +1,7 @@
 version: 2
 
 models:
-  - name: fact_bank_marketing
+  - name: fact_table
     description: "fact table"
     columns:
       - name: id
@@ -54,7 +54,7 @@ models:
         tests:
           - not_null
           - relationships:
-              to: ref('dim_personal_loan_id')
+              to: ref('dim_personal_loan')
               field: personal_loan_id
       - name: contact_id
         description: "Identifier for contact types"      
